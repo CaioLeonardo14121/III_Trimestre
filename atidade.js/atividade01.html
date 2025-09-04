@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Botões com Alerta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Interface com 3 Botões</h1>
+
+  <button onclick="mostrarAlerta(1)">Botão 1</button>
+  <button onclick="mostrarAlerta(2)">Botão 2</button>
+  <button onclick="mostrarAlerta(3)">Botão 3</button>
+
+  <script>
+    function mostrarAlerta(numero) {
+      alert(`Você clicou no ${numero}º botão!`);
+    }
+  </script>
+
+</body>
+</html>

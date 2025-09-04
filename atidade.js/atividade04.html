@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Troco</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #1e8449;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Simulador de Compra com Troco</h1>
+  <button onclick="processarCompra()">Iniciar Compra</button>
+
+  <script>
+    function processarCompra() {
+      const produto = prompt("Qual é o nome do produto?");
+      if (!produto || produto.trim() === "") {
+        alert("Por favor, informe o nome do produto.");
+        return;
+      }
+
+      const precoStr = prompt(`Qual é o preço do produto "${produto}"?`);
+      const preco = parseFloat(precoStr.replace(",", "."));
+      if (isNaN(preco) || preco <= 0) {
+        alert("Por favor, informe um preço válido (maior que zero).");
+        return;
+      }
+
+      const dinheiroStr = prompt(`Você está comprando "${produto}" por R$${preco.toFixed(2)}.\n\nQuanto em dinheiro o cliente entregou?`);
+      const dinheiro = parseFloat(dinheiroStr.replace(",", "."));
+      if (isNaN(dinheiro) || dinheiro < preco) {
+        alert("O valor entregue deve ser um número e maior ou igual ao preço do produto.");
+        return;
+      }
+
+      const troco = dinheiro - preco;
+
+      alert(`Você comprou "${produto}", que custa R$${preco.toFixed(2)}.\nDeu R$${dinheiro.toFixed(2)} em dinheiro e vai receber R$${troco.toFixed(2)} de troco!\n\nVolte sempre!`);
+    }
+  </script>
+
+</body>
+</html>
